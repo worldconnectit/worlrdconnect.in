@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Connect — Remote IT Support</title>
+<!-- Formspree for admin email notifications -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+function toggleFaq(btn) {
+  var panel = btn.nextElementSibling;
+  var span = btn.querySelector('span');
+  if (panel.style.display === 'none' || panel.style.display === '') {
+    panel.style.display = 'block';
+    span.textContent = '-';
+  } else {
+    panel.style.display = 'none';
+    span.textContent = '+';
+  }
+}
+</script>
+<script>var FORMSPREE_URL = 'https://formspree.io/f/mrevzyzp';</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #f4f6f9; color: #222; }
+  nav { background: #0C447C; color: white; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-brand { font-size: 20px; font-weight: bold; }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; }
+  .nav-links a:hover { color: white; }
+  .hero { background: linear-gradient(135deg, #0C447C 0%, #185FA5 60%, #378ADD 100%); color: white; text-align: center; padding: 60px 20px 50px; }
+  .hero-badge { display: inline-block; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 5px 16px; font-size: 13px; margin-bottom: 16px; }
+  .hero h1 { font-size: 38px; margin-bottom: 14px; font-weight: 800; line-height: 1.25; }
+  .hero p { font-size: 16px; opacity: 0.9; max-width: 520px; margin: 0 auto 28px; line-height: 1.7; }
+  .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .hero-stat strong { display: block; font-size: 24px; }
+  .hero-stat span { font-size: 13px; opacity: 0.78; }
+  .hero-cta { margin-top: 32px; display: inline-block; background: white; color: #185FA5; padding: 14px 36px; border-radius: 8px; font-size: 16px; font-weight: 800; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+  .hero-cta:hover { background: #E6F1FB; }
+  .section { padding: 50px 20px; max-width: 960px; margin: 0 auto; }
+  .section-label { font-size: 11px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+  .section-title { font-size: 24px; font-weight: bold; color: #111; margin-bottom: 24px; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+  .service-card { background: white; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 16px; transition: box-shadow 0.2s; }
+  .service-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .service-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 12px; }
+  .icon-blue{background:#E6F1FB;} .icon-teal{background:#E1F5EE;} .icon-amber{background:#FAEEDA;} .icon-purple{background:#EEEDFE;} .icon-coral{background:#FAECE7;} .icon-green{background:#EAF3DE;}
+  .service-card h3 { font-size: 14px; font-weight: bold; margin-bottom: 5px; }
+  .service-card p { font-size: 13px; color: #666; line-height: 1.55; }
+  .steps { display: flex; flex-direction: column; }
+  .step { display: flex; gap: 18px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid #dde3ec; }
+  .step:last-child { border-bottom: none; }
+  .step-num { width: 36px; height: 36px; border-radius: 50%; background: #185FA5; color: white; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: bold; flex-shrink: 0; }
+  .step-info h4 { font-size: 15px; font-weight: bold; margin-bottom: 3px; }
+  .step-info p { font-size: 13px; color: #555; line-height: 1.6; }
+  .pricing-box { background: white; border: 1px solid #dde3ec; border-radius: 14px; padding: 28px; max-width: 600px; margin: 0 auto; }
+  .pricing-table { width: 100%; border-collapse: collapse; margin-bottom: 18px; }
+  .pricing-table th { background: #185FA5; color: white; padding: 10px 14px; text-align: left; font-size: 14px; }
+  .pricing-table th:first-child{border-radius:8px 0 0 0;} .pricing-table th:last-child{border-radius:0 8px 0 0;}
+  .pricing-table td { padding: 10px 14px; font-size: 14px; border-bottom: 1px solid #eee; }
+  .pricing-table tr:last-child td{border-bottom:none;} .pricing-table tr:nth-child(even) td{background:#f7f9fc;}
+  .price-note { font-size: 13px; color: #854F0B; background: #FAEEDA; border-radius: 8px; padding: 10px 14px; }
+  .calc-row { display: flex; align-items: center; gap: 14px; margin: 16px 0; }
+  .calc-row label { font-size: 14px; color: #555; min-width: 180px; }
+  .calc-row input[type=range] { flex: 1; }
+  .calc-row .val { font-size: 15px; font-weight: bold; min-width: 28px; }
+  .price-display { background: #E6F1FB; border-radius: 10px; padding: 18px; display: flex; align-items: center; justify-content: space-between; }
+  .price-display strong { font-size: 32px; color: #0C447C; }
+  .price-display p { font-size: 13px; color: #185FA5; }
+  .price-breakdown { font-size: 13px; color: #185FA5; text-align: right; line-height: 1.7; }
+  .hardware-note { background: #FAECE7; border: 1px solid #F5C4B3; border-radius: 12px; padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
+  .hardware-note .icon { font-size: 28px; }
+  .hardware-note h4 { font-size: 15px; font-weight: bold; color: #712B13; margin-bottom: 5px; }
+  .hardware-note p { font-size: 13px; color: #993C1D; line-height: 1.6; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 13px; color: #555; margin-bottom: 5px; font-weight: bold; }
+  .field input, .field select, .field textarea { width: 100%; padding: 10px 12px; border: 1px solid #cdd5e0; border-radius: 8px; font-size: 14px; font-family: Arial; color: #222; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: #185FA5; box-shadow: 0 0 0 3px rgba(24,95,165,0.12); }
+  .field textarea { height: 100px; resize: vertical; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .submit-btn { width: 100%; background: #185FA5; color: white; border: none; border-radius: 8px; padding: 13px; font-size: 15px; font-weight: bold; cursor: pointer; margin-top: 4px; }
+  .submit-btn:hover { background: #0C447C; }
+  .submit-btn:disabled { background: #aaa; cursor: not-allowed; }
+  .err-msg { font-size: 13px; color: #A32D2D; margin-bottom: 10px; display: none; }
+  .sending-bar { background: #E6F1FB; border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; font-size: 13px; color: #185FA5; display: none; text-align: center; }
+  .success-box { background: #EAF3DE; border: 1px solid #97C459; border-radius: 12px; padding: 30px 20px; text-align: center; display: none; }
+  .success-box .big-icon { font-size: 48px; margin-bottom: 10px; }
+  .success-box h3 { font-size: 20px; color: #27500A; margin-bottom: 6px; }
+  .success-box p { font-size: 14px; color: #3B6D11; line-height: 1.7; }
+  .success-box .tid { font-size: 26px; font-weight: bold; color: #0F6E56; margin: 10px 0; background: white; border-radius: 8px; padding: 8px 20px; display: inline-block; }
+  .notif-row { display: flex; justify-content: center; gap: 10px; margin: 14px 0; flex-wrap: wrap; }
+  .notif-chip { border-radius: 20px; padding: 6px 14px; font-size: 13px; font-weight: bold; }
+  .chip-green { background: #EAF3DE; border: 1px solid #97C459; color: #27500A; }
+  .chip-blue { background: #E6F1FB; border: 1px solid #185FA5; color: #0C447C; }
+  .reset-btn { margin-top: 16px; padding: 9px 20px; background: white; color: #185FA5; border: 1px solid #185FA5; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; }
+  .contact-bar { background: #185FA5; color: white; padding: 36px 20px; text-align: center; }
+  .contact-bar h2 { font-size: 24px; margin-bottom: 8px; }
+  .contact-bar p { font-size: 15px; opacity: 0.85; margin-bottom: 20px; }
+  .contact-bar a { background: white; color: #185FA5; padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: bold; text-decoration: none; display: inline-block; }
+  footer { background: #0C447C; color: rgba(255,255,255,0.7); text-align: center; padding: 18px; font-size: 13px; }
+  footer strong { color: white; }
+
+  /* ADMIN LOGIN */
+  .overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.65); z-index: 999; align-items: center; justify-content: center; }
+  .overlay.show { display: flex; }
+  .login-box { background: white; border-radius: 16px; padding: 36px 32px; width: 340px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .login-box .lock { font-size: 44px; margin-bottom: 12px; }
+  .login-box h3 { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+  .login-box p { font-size: 13px; color: #888; margin-bottom: 20px; }
+  .login-box input { width: 100%; padding: 11px 14px; border: 1px solid #cdd5e0; border-radius: 8px; font-size: 15px; margin-bottom: 12px; text-align: center; letter-spacing: 3px; }
+  .login-box input:focus { outline: none; border-color: #185FA5; }
+  .login-btn { width: 100%; background: #185FA5; color: white; border: none; border-radius: 8px; padding: 12px; font-size: 15px; font-weight: bold; cursor: pointer; }
+  .login-err { font-size: 13px; color: #A32D2D; margin-top: 8px; display: none; }
+  .cancel-btn { margin-top: 10px; background: none; border: none; color: #888; font-size: 13px; cursor: pointer; }
+
+  /* ADMIN PAGE */
+  #admin-page { display: none; }
+  .admin-header { background: #0C447C; color: white; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .admin-header h2 { font-size: 18px; }
+  .admin-btns { display: flex; gap: 10px; }
+  .admbtn { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 7px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold; }
+  .admbtn:hover { background: rgba(255,255,255,0.28); }
+  .admin-body { max-width: 960px; margin: 0 auto; padding: 30px 20px; }
+  .stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 20px; }
+  .stat { background: white; border: 1px solid #e0e0e0; border-radius: 10px; padding: 14px 16px; }
+  .stat p { font-size: 12px; color: #888; margin-bottom: 4px; }
+  .stat strong { font-size: 26px; font-weight: bold; }
+  .filter-row { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .fbtn { padding: 5px 14px; font-size: 13px; border: 1px solid #cdd5e0; border-radius: 20px; background: none; cursor: pointer; color: #555; }
+  .fbtn.active { background: #185FA5; color: white; border-color: #185FA5; }
+  .ticket-item { background: white; border: 1px solid #dde3ec; border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; cursor: pointer; transition: border-color 0.15s; }
+  .ticket-item:hover { border-color: #185FA5; }
+  .t-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .t-id { font-size: 12px; color: #888; font-weight: bold; }
+  .badge { display: inline-block; font-size: 11px; font-weight: bold; padding: 2px 10px; border-radius: 12px; }
+  .badge-open{background:#E6F1FB;color:#0C447C;} .badge-prog{background:#FAEEDA;color:#633806;} .badge-done{background:#EAF3DE;color:#27500A;}
+  .t-name { font-size: 15px; font-weight: bold; }
+  .t-sub { font-size: 13px; color: #666; }
+  .t-meta { font-size: 12px; color: #aaa; margin-top: 5px; }
+  .detail-panel { background: #f0f4f8; border-radius: 12px; padding: 20px; margin-top: 14px; display: none; }
+  .detail-panel h4 { font-size: 16px; font-weight: bold; margin-bottom: 14px; }
+  .drow { display: flex; justify-content: space-between; font-size: 13px; padding: 7px 0; border-bottom: 1px solid #dde3ec; }
+  .drow:last-of-type{border:none;} .drow span:first-child{color:#888;} .drow span:last-child{font-weight:bold;}
+  .desc-box { background: white; border: 1px solid #dde3ec; border-radius: 8px; padding: 12px; font-size: 13px; line-height: 1.6; margin: 12px 0; }
+  .reply-txt { width: 100%; padding: 10px; border: 1px solid #cdd5e0; border-radius: 8px; font-size: 13px; height: 80px; resize: vertical; font-family: Arial; margin-bottom: 10px; }
+  .action-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+  .abtn { padding: 8px 16px; font-size: 13px; border-radius: 8px; border: 1px solid #cdd5e0; cursor: pointer; background: none; font-weight: bold; }
+  .abtn.blue{background:#185FA5;color:white;border-color:#185FA5;} .abtn.green{background:#3B6D11;color:white;border-color:#3B6D11;} .abtn.orange{background:#C45C00;color:white;border-color:#C45C00;}
+  .notif-ok { background: #EAF3DE; border-radius: 8px; padding: 8px 12px; font-size: 12px; color: #27500A; display: none; margin-top: 6px; }
+  .empty-state { text-align: center; padding: 40px; color: #aaa; font-size: 15px; }
+
+  /* SETUP GUIDE */
+  .setup-box { background: #FFF8E1; border: 2px solid #FFD54F; border-radius: 14px; padding: 20px; margin-bottom: 20px; }
+  .setup-box h3 { font-size: 15px; font-weight: bold; color: #7A5600; margin-bottom: 12px; }
+  .setup-step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+  .setup-num { width: 26px; height: 26px; border-radius: 50%; background: #FFD54F; color: #7A5600; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold; flex-shrink: 0; }
+  .setup-step p { font-size: 13px; color: #5D4037; line-height: 1.6; }
+  .setup-step a { color: #185FA5; font-weight: bold; }
+  .config-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .config-field label { font-size: 12px; font-weight: bold; color: #7A5600; display: block; margin-bottom: 4px; }
+  .config-field input { width: 100%; padding: 8px 10px; border: 1.5px solid #FFD54F; border-radius: 6px; font-size: 13px; }
+  .save-config-btn { background: #185FA5; color: white; border: none; border-radius: 8px; padding: 10px 20px; font-size: 13px; font-weight: bold; cursor: pointer; margin-top: 12px; }
+
+  /* NOTIFICATION STATUS PANEL */
+  .notif-panel { background: white; border: 1.5px solid #185FA5; border-radius: 14px; padding: 18px 20px; margin-bottom: 20px; }
+  .notif-panel h3 { font-size: 15px; font-weight: bold; color: #0C447C; margin-bottom: 12px; }
+  .notif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .notif-card { border-radius: 10px; padding: 12px 14px; }
+  .notif-card.blue { background: #E6F1FB; border: 1px solid #B3CFF5; }
+  .notif-card.green { background: #E8F5E9; border: 1px solid #A5D6A7; }
+  .notif-card h4 { font-size: 13px; font-weight: bold; margin-bottom: 6px; }
+  .notif-card p { font-size: 12px; color: #555; line-height: 1.7; }
+
+  @media(max-width:600px){
+    .hero h1{font-size:26px;} .form-grid{grid-template-columns:1fr;} .stats-row{grid-template-columns:1fr 1fr;} .nav-links{display:none;} .config-row{grid-template-columns:1fr;} .notif-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- UNDER CONSTRUCTION POPUP -->
+<div id="construction-overlay" style="
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.85);
+  z-index:99999;
+  display:flex;align-items:center;justify-content:center;
+  font-family:Arial,sans-serif;
+">
+  <div style="
+    background:white;
+    border-radius:16px;
+    padding:40px 32px;
+    max-width:420px;
+    width:90%;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    animation:popIn 0.4s ease;
+  ">
+    <div style="font-size:56px;margin-bottom:12px;">🚧</div>
+    <h2 style="font-size:22px;font-weight:800;color:#0C447C;margin-bottom:8px;">
+      Website Under Construction
+    </h2>
+    <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:6px;">
+      <strong>World Connect IT Support</strong> website is currently under construction and being improved for you.
+    </p>
+    <p style="font-size:13px;color:#888;line-height:1.7;margin-bottom:24px;">
+      You can still raise a support ticket and our team will contact you shortly. Thank you for your patience!
+    </p>
+    <div style="background:#FFF8E1;border:1px solid #FFD54F;border-radius:8px;padding:10px 14px;margin-bottom:24px;">
+      <p style="font-size:13px;color:#7A5600;">
+        📞 For urgent support call or WhatsApp:<br>
+        <strong style="font-size:16px;color:#0C447C;">+91 9908773820</strong>
+      </p>
+    </div>
+    <button onclick="closeConstruction()" style="
+      background:linear-gradient(135deg,#0C447C,#185FA5);
+      color:white;
+      border:none;
+      border-radius:10px;
+      padding:14px 36px;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      width:100%;
+      box-shadow:0 4px 14px rgba(24,95,165,0.4);
+      letter-spacing:0.3px;
+    ">✅ OK — Continue to Website</button>
+    <p style="font-size:11px;color:#bbb;margin-top:12px;">© 2025 World Connect IT Support · Hyderabad, India</p>
+  </div>
+</div>
+
+<style>
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+</style>
+
+<script>
+function closeConstruction() {
+  var overlay = document.getElementById('construction-overlay');
+  overlay.style.animation = 'none';
+  overlay.style.transition = 'opacity 0.3s';
+  overlay.style.opacity = '0';
+  setTimeout(function() { overlay.style.display = 'none'; }, 300);
+}
+</script>
+
+<!-- ADMIN LOGIN OVERLAY -->
+<div class="overlay" id="login-overlay">
+  <div class="login-box">
+    <div class="lock">🔐</div>
+    <h3>Admin Login</h3>
+    <p>Enter your password to access the admin dashboard</p>
+    <input type="password" id="pwd-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')adminLogin()">
+    <button class="login-btn" onclick="adminLogin()">Login</button>
+    <p class="login-err" id="login-err">❌ Wrong password. Please try again.</p>
+    <button class="cancel-btn" onclick="document.getElementById('login-overlay').classList.remove('show')">Cancel</button>
+  </div>
+</div>
+
+<!-- ==================== CUSTOMER WEBSITE ==================== -->
+<div id="main-site">
+  <nav>
+    <div class="nav-brand" id="secret-tap" style="cursor:pointer;">🌐 World Connect <span style="font-size:11px;font-weight:normal;opacity:0.7;letter-spacing:1px;">IT SUPPORT</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#team">Our Team</a>
+      <a href="#contact">Contact</a>
+      <a href="#ticket">Get Support</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-badge">✔ Certified Remote IT Support — India</div>
+    <h1>Professional IT Support,<br>Delivered to Your Doorstep</h1>
+    <p>Expert remote assistance for all your computer, software, and hardware needs — fast, reliable, and affordable. No waiting. No travel. Just solutions.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>₹150</strong><span>Starting price</span></div>
+      <div class="hero-stat"><strong>100%</strong><span>Remote & online</span></div>
+      <div class="hero-stat"><strong>Fast</strong><span>Quick resolution</span></div>
+      <div class="hero-stat"><strong>Secure</strong><span>Safe & trusted</span></div>
+    </div>
+    <br>
+    <a class="hero-cta" href="#ticket">🎫 Raise a Support Ticket</a>
+  </div>
+
+  <div id="services" class="section">
+    <p class="section-label">What we help with</p>
+    <p class="section-title">Our services</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon icon-blue">💻</div><h3>Slow or hanging computer</h3><p>Speed up your PC or laptop that is running slow or freezing.</p></div>
+      <div class="service-card"><div class="service-icon icon-teal">⬇️</div><h3>Software installation</h3><p>Install any software safely and correctly on your system.</p></div>
+      <div class="service-card"><div class="service-icon icon-amber">📱</div><h3>Software guidance</h3><p>Learn how to use any software — step by step, in simple language.</p></div>
+      <div class="service-card"><div class="service-icon icon-purple">🛒</div><h3>Buying advice</h3><p>Get expert advice before buying a laptop, desktop, or software.</p></div>
+      <div class="service-card"><div class="service-icon icon-coral">🐛</div><h3>Error &amp; virus fixes</h3><p>Fix crashes, error messages, and remove viruses or malware.</p></div>
+      <div class="service-card"><div class="service-icon icon-green">📶</div><h3>Network &amp; internet</h3><p>Fix internet connection issues, Wi-Fi problems, and router setup.</p></div>
+    </div>
+  </div>
+
+  <div id="how" style="background:#f0f4f8;padding:50px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <p class="section-label">Simple process</p>
+      <p class="section-title">How it works</p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-info"><h4>Raise a ticket</h4><p>Fill in the support form with your name, phone, email, and issue details.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-info"><h4>Auto notification sent</h4><p>You instantly receive your Ticket ID by email automatically. No waiting.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-info"><h4>We connect and fix</h4><p>Our expert connects remotely and resolves your issue while you watch.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-info"><h4>Status updates sent to you</h4><p>You get automatic email updates when your ticket moves to In Progress and Resolved.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pricing" class="section">
+    <p class="section-label">Transparent pricing</p>
+    <p class="section-title">How much does it cost?</p>
+    <div class="pricing-box">
+      <table class="pricing-table">
+        <tr><th>What</th><th>Cost</th></tr>
+        <tr><td>Starting fee (diagnosis + 1st hour)</td><td><strong>₹150</strong></td></tr>
+        <tr><td>Every additional hour</td><td><strong>₹50</strong></td></tr>
+        <tr><td>2 hours total</td><td><strong>₹200</strong></td></tr>
+        <tr><td>3 hours total</td><td><strong>₹250</strong></td></tr>
+        <tr><td>4 hours total</td><td><strong>₹300</strong></td></tr>
+      </table>
+      <p class="price-note">⚠️ The ₹150 starting fee covers diagnosis and the first hour. Additional time is ₹50/hour.</p>
+      <br>
+      <p style="font-size:15px;font-weight:bold;margin-bottom:4px;">Calculate your estimated cost</p>
+      <div class="calc-row">
+        <label>Extra hours beyond 1st hour</label>
+        <input type="range" min="0" max="5" value="0" step="1" id="hrs" oninput="calcPrice(this.value)">
+        <span class="val" id="hval">0</span>
+      </div>
+      <div class="price-display">
+        <div><p>Estimated total</p><strong id="totalAmt">₹150</strong></div>
+        <div class="price-breakdown" id="breakdown">Starting fee: ₹150<br>Extra hours: 0 × ₹50 = ₹0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="hardware-note">
+      <div class="icon">🔧</div>
+      <div>
+        <h4>Physical hardware repairs</h4>
+        <p>We cannot repair broken hardware remotely. We will guide you to the nearest trusted local IT service center with estimated charges.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="ticket" style="background:#f0f4f8;padding:50px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <p class="section-label">Support tickets</p>
+      <p class="section-title">Raise a support ticket</p>
+      <p style="font-size:14px;color:#555;margin-bottom:6px;">Fill the form below. You will receive an <strong>automatic email</strong> with your Ticket ID immediately.</p>
+      <p style="font-size:13px;color:#185FA5;margin-bottom:20px;">📧 Automatic Email confirmation sent instantly after submission</p>
+
+      <div id="ticket-form">
+        <div class="form-grid">
+          <div class="field"><label>Your name *</label><input type="text" id="f-name" placeholder="e.g. Ravi Kumar"></div>
+          <div class="field"><label>Phone / WhatsApp number *</label><input type="text" id="f-phone" placeholder="e.g. 9876543210"></div>
+        </div>
+        <div class="field"><label>Email address * (confirmation will be sent here automatically)</label><input type="email" id="f-email" placeholder="e.g. ravi@gmail.com"></div>
+        <div class="form-grid">
+          <div class="field"><label>Type of issue *</label>
+            <select id="f-type">
+              <option value="">Select issue type</option>
+              <option>Computer slow / hanging</option>
+              <option>Software installation</option>
+              <option>Software guidance</option>
+              <option>Virus / error fix</option>
+              <option>Network / internet issue</option>
+              <option>Buying advice</option>
+              <option>Other IT issue</option>
+            </select>
+          </div>
+          <div class="field"><label>Device type *</label>
+            <select id="f-device">
+              <option value="">Select device</option>
+              <option>Laptop</option>
+              <option>Desktop</option>
+              <option>Mobile</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Describe your problem *</label>
+          <textarea id="f-desc" placeholder="Tell us in detail what is happening..."></textarea>
+        </div>
+        <p class="err-msg" id="ferr"></p>
+        <div class="sending-bar" id="sending-bar">⏳ Submitting your ticket and sending notifications... please wait...</div>
+        <button class="submit-btn" id="submit-btn" onclick="submitTicket()">📨 Submit Ticket — Get Instant Email Confirmation</button>
+      </div>
+
+      <div class="success-box" id="success-box">
+        <div class="big-icon">✅</div>
+        <h3>Ticket submitted successfully!</h3>
+        <p>Your Ticket ID is</p>
+        <div class="tid" id="success-tid"></div>
+        <div class="notif-row">
+          <span class="notif-chip chip-blue">📧 Email sent automatically</span>
+          <span class="notif-chip chip-green">✅ Ticket is now Open</span>
+        </div>
+        <p>Check your email inbox for the confirmation.<br>
+        You will receive another email when your ticket status changes.</p>
+        <p style="margin-top:10px;font-size:13px;color:#3B6D11;">Starting fee: ₹150 &nbsp;·&nbsp; Additional time: ₹50/hour</p>
+        <button class="reset-btn" onclick="resetForm()">Raise another ticket</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- TEAM SECTION -->
+  <div id="team" style="background:#f0f4f8;padding:50px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <p class="section-label">The people behind World Connect</p>
+      <p class="section-title">Meet Our Team</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+
+        <div style="background:white;border-radius:16px;padding:28px 20px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+          <div style="width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:4px solid #185FA5;">
+            <img src="data:image/jpeg;base64,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" alt="Satish Polisetty" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+          </div>
+          <h3 style="font-size:18px;font-weight:700;color:#0C447C;margin-bottom:6px;">Satish Polisetty</h3>
+          <span style="font-size:12px;font-weight:700;color:#185FA5;background:#E6F1FB;padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:12px;">Founder &amp; CEO</span>
+          <p style="font-size:13px;color:#555;line-height:1.7;">Visionary leader with over 10 years of IT experience. Expert in remote support, network solutions, and delivering affordable tech help to every household.</p>
+          <div style="display:flex;justify-content:center;gap:10px;margin-top:14px;">
+            <a href="https://wa.me/919908773820" style="background:#25D366;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;">📱 WhatsApp</a>
+            <a href="mailto:Satishpolisetty@gmail.com" style="background:#185FA5;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;">📧 Email</a>
+          </div>
+        </div>
+
+        <div style="background:white;border-radius:16px;padding:28px 20px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+          <div style="width:130px;height:130px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:4px solid #185FA5;">
+            <img src="data:image/jpeg;base64,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" alt="GSL Pradeep" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+          </div>
+          <h3 style="font-size:18px;font-weight:700;color:#0C447C;margin-bottom:6px;">GSL Pradeep</h3>
+          <span style="font-size:12px;font-weight:700;color:#185FA5;background:#E6F1FB;padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:12px;">Co-Founder &amp; IT Infrastructure Leader</span>
+          <p style="font-size:13px;color:#555;line-height:1.7;">IT Infrastructure &amp; Cloud Transformation Leader with 25+ years of experience in Data Center Management, BFSI, Healthcare, and Enterprise Program/Project Management — delivering strategic technology solutions and operational excellence.</p>
+          <div style="display:flex;justify-content:center;gap:10px;margin-top:14px;">
+            <a href="https://wa.me/919908773820" style="background:#25D366;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;">📱 WhatsApp</a>
+            <a href="mailto:Satishpolisetty@gmail.com" style="background:#185FA5;color:white;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;">📧 Email</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div id="testimonials" style="padding:50px 0;background:white;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <p class="section-label">What our customers say</p>
+      <p class="section-title">Customer Reviews</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+        <div style="background:#f4f6f9;border-radius:12px;padding:20px;">
+          <div style="color:#FFB400;font-size:18px;margin-bottom:8px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p style="font-size:13px;color:#333;line-height:1.7;margin-bottom:12px;">"My laptop was very slow for months. World Connect fixed it in just 1 hour remotely. Excellent and very affordable!"</p>
+          <p style="font-size:13px;font-weight:700;color:#185FA5;">— Ravi Kumar, Hyderabad</p>
+        </div>
+        <div style="background:#f4f6f9;border-radius:12px;padding:20px;">
+          <div style="color:#FFB400;font-size:18px;margin-bottom:8px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p style="font-size:13px;color:#333;line-height:1.7;margin-bottom:12px;">"Very professional team. They installed all my software remotely without any problems. Highly recommended!"</p>
+          <p style="font-size:13px;font-weight:700;color:#185FA5;">— Priya Sharma, Bangalore</p>
+        </div>
+        <div style="background:#f4f6f9;border-radius:12px;padding:20px;">
+          <div style="color:#FFB400;font-size:18px;margin-bottom:8px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p style="font-size:13px;color:#333;line-height:1.7;margin-bottom:12px;">"Got virus removed from my desktop in 30 minutes. Price was very reasonable at just &#8377;150. Great support!"</p>
+          <p style="font-size:13px;font-weight:700;color:#185FA5;">— Suresh Reddy, Vizag</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <div id="contact" style="background:#f0f4f8;padding:50px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <p class="section-label">Get in touch</p>
+      <p class="section-title">Contact Us</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+        <div style="background:white;border-radius:12px;padding:20px;text-align:center;">
+          <div style="font-size:32px;margin-bottom:10px;">&#128241;</div>
+          <h4 style="font-size:14px;font-weight:700;color:#0C447C;margin-bottom:6px;">WhatsApp / Phone</h4>
+          <p style="font-size:14px;color:#185FA5;font-weight:700;">+91 9908773820</p>
+          <a href="https://wa.me/919908773820?text=Hello%20World%20Connect!%20I%20need%20IT%20support." style="display:inline-block;margin-top:10px;background:#25D366;color:white;padding:7px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;">Chat on WhatsApp</a>
+        </div>
+        <div style="background:white;border-radius:12px;padding:20px;text-align:center;">
+          <div style="font-size:32px;margin-bottom:10px;">&#128231;</div>
+          <h4 style="font-size:14px;font-weight:700;color:#0C447C;margin-bottom:6px;">Email Us</h4>
+          <p style="font-size:14px;color:#185FA5;font-weight:700;">Satishpolisetty@gmail.com</p>
+          <a href="mailto:Satishpolisetty@gmail.com" style="display:inline-block;margin-top:10px;background:#185FA5;color:white;padding:7px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;">Send Email</a>
+        </div>
+        <div style="background:white;border-radius:12px;padding:20px;text-align:center;">
+          <div style="font-size:32px;margin-bottom:10px;">&#128336;</div>
+          <h4 style="font-size:14px;font-weight:700;color:#0C447C;margin-bottom:6px;">Working Hours</h4>
+          <p style="font-size:13px;color:#555;line-height:1.7;">Monday - Saturday<br>9:00 AM - 8:00 PM<br>Sunday: 10 AM - 4 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ SECTION -->
+  <div id="faq" style="padding:50px 0;background:white;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <p class="section-label">Common questions</p>
+      <p class="section-title">Frequently Asked Questions</p>
+      <div style="max-width:700px;margin:0 auto;">
+        <div style="border:1px solid #dde3ec;border-radius:10px;margin-bottom:10px;overflow:hidden;">
+          <button onclick="toggleFaq(this)" style="width:100%;text-align:left;padding:14px 16px;background:#f7f9fc;border:none;font-size:14px;font-weight:700;color:#0C447C;cursor:pointer;display:flex;justify-content:space-between;">How does remote support work? <span>+</span></button>
+          <div style="display:none;padding:14px 16px;font-size:13px;color:#555;line-height:1.7;background:white;">We connect to your computer using safe remote tools over the internet. You can watch everything we do on your screen. No one physically visits your home — 100% online and safe.</div>
+        </div>
+        <div style="border:1px solid #dde3ec;border-radius:10px;margin-bottom:10px;overflow:hidden;">
+          <button onclick="toggleFaq(this)" style="width:100%;text-align:left;padding:14px 16px;background:#f7f9fc;border:none;font-size:14px;font-weight:700;color:#0C447C;cursor:pointer;display:flex;justify-content:space-between;">How much does it cost? <span>+</span></button>
+          <div style="display:none;padding:14px 16px;font-size:13px;color:#555;line-height:1.7;background:white;">Starting fee is &#8377;150 which covers diagnosis and first hour of work. If the issue takes more time, we charge &#8377;50 for every additional hour. You will always know the cost before we start.</div>
+        </div>
+        <div style="border:1px solid #dde3ec;border-radius:10px;margin-bottom:10px;overflow:hidden;">
+          <button onclick="toggleFaq(this)" style="width:100%;text-align:left;padding:14px 16px;background:#f7f9fc;border:none;font-size:14px;font-weight:700;color:#0C447C;cursor:pointer;display:flex;justify-content:space-between;">Is it safe to give remote access? <span>+</span></button>
+          <div style="display:none;padding:14px 16px;font-size:13px;color:#555;line-height:1.7;background:white;">Yes, 100% safe. You watch everything on your screen at all times. You can disconnect at any moment. We use trusted software like AnyDesk or TeamViewer used by companies worldwide.</div>
+        </div>
+        <div style="border:1px solid #dde3ec;border-radius:10px;margin-bottom:10px;overflow:hidden;">
+          <button onclick="toggleFaq(this)" style="width:100%;text-align:left;padding:14px 16px;background:#f7f9fc;border:none;font-size:14px;font-weight:700;color:#0C447C;cursor:pointer;display:flex;justify-content:space-between;">What if my problem cannot be fixed remotely? <span>+</span></button>
+          <div style="display:none;padding:14px 16px;font-size:13px;color:#555;line-height:1.7;background:white;">For physical hardware issues like broken screens or damaged parts, we guide you to the nearest trusted local IT service center with estimated cost — so you are never left without help.</div>
+        </div>
+        <div style="border:1px solid #dde3ec;border-radius:10px;overflow:hidden;">
+          <button onclick="toggleFaq(this)" style="width:100%;text-align:left;padding:14px 16px;background:#f7f9fc;border:none;font-size:14px;font-weight:700;color:#0C447C;cursor:pointer;display:flex;justify-content:space-between;">Do you help with buying new computers? <span>+</span></button>
+          <div style="display:none;padding:14px 16px;font-size:13px;color:#555;line-height:1.7;background:white;">Yes! We provide expert buying advice for laptops, desktops, and software based on your budget and requirements. No bias — we help you get the best value.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVACY POLICY -->
+  <div id="privacy" style="background:#f0f4f8;padding:40px 0;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <p class="section-label">Legal</p>
+      <p class="section-title">Privacy Policy</p>
+      <div style="background:white;border-radius:12px;padding:24px;font-size:13px;color:#555;line-height:1.9;max-width:700px;">
+        <p><strong style="color:#0C447C;">World Connect IT Support</strong> respects your privacy.</p><br>
+        <p><strong>Information we collect:</strong> Name, phone, email, and issue description when you raise a ticket.</p><br>
+        <p><strong>How we use it:</strong> Only to provide IT support and send ticket status updates.</p><br>
+        <p><strong>We do NOT:</strong> Sell, share, or misuse your personal information.</p><br>
+        <p><strong>Remote access:</strong> We only access what is needed to fix your issue. You can disconnect anytime.</p><br>
+        <p><strong>Contact:</strong> Email Satishpolisetty@gmail.com or WhatsApp +91 9908773820.</p><br>
+        <p style="color:#888;font-size:12px;">Last updated: June 2025 &nbsp;&#183;&nbsp; World Connect IT Support &nbsp;&#183;&nbsp; Hyderabad, India</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-bar">
+    <h2>Ready to fix your computer?</h2>
+    <p>Connect with World Connect — fast, safe, and affordable remote IT support.</p>
+    <a href="#ticket">🎫 Raise a ticket now</a>
+  </div>
+  <footer>
+    <strong>World Connect</strong> &nbsp;·&nbsp; Remote IT Support &nbsp;·&nbsp; Connecting you to solutions
+    <br><span style="font-size:12px;opacity:0.6;">© 2025 World Connect. All rights reserved.</span>
+  </footer>
+</div>
+
+<!-- ==================== ADMIN PAGE ==================== -->
+<div id="admin-page">
+  <div class="admin-header">
+    <h2>🛠️ World Connect — Admin Dashboard</h2>
+    <div class="admin-btns">
+      <button class="admbtn" onclick="goHome()">🏠 Home</button>
+      <button class="admbtn" onclick="adminLogout()">🔒 Logout</button>
+    </div>
+  </div>
+  <div class="admin-body">
+
+    <!-- EMAIL NOTIFICATION STATUS — keys hardcoded, no manual entry needed -->
+    <div style="background:#EAF3DE;border:2px solid #97C459;border-radius:14px;padding:20px;margin-bottom:20px;">
+      <p style="font-size:16px;font-weight:bold;color:#27500A;margin-bottom:10px;">✅ Email Notifications — Active & Ready</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;">
+        <div style="background:white;border-radius:8px;padding:10px 12px;">
+          <p style="font-size:11px;color:#888;margin-bottom:3px;">EmailJS Public Key</p>
+          <p style="font-size:13px;font-weight:bold;color:#27500A;">A0Y9DE30trN47Z0V7 ✅</p>
+        </div>
+        <div style="background:white;border-radius:8px;padding:10px 12px;">
+          <p style="font-size:11px;color:#888;margin-bottom:3px;">Service ID</p>
+          <p style="font-size:13px;font-weight:bold;color:#27500A;">service_2w4nvbe ✅</p>
+        </div>
+        <div style="background:white;border-radius:8px;padding:10px 12px;">
+          <p style="font-size:11px;color:#888;margin-bottom:3px;">Template ID</p>
+          <p style="font-size:13px;font-weight:bold;color:#27500A;">template_smcvfar ✅</p>
+        </div>
+      </div>
+      <p style="font-size:13px;color:#3B6D11;">📧 Admin email: <strong>Satishpolisetty@gmail.com</strong> &nbsp;·&nbsp; 📱 WhatsApp: <strong>+91 9908773820</strong></p>
+      <p style="font-size:12px;color:#3B6D11;margin-top:6px;">All keys are pre-configured. Emails send automatically when customers raise tickets — no setup needed.</p>
+    </div>
+
+    <!-- NOTIFICATION STATUS -->
+    <div class="notif-panel">
+      <h3>🔔 Notification Status</h3>
+      <div class="notif-grid">
+        <div class="notif-card blue">
+          <h4>📧 Email — Admin (You)</h4>
+          <p>
+            ✅ New ticket raised → <strong>You get email</strong><br>
+            ✅ Automatically sent to:<br>
+            <strong>Satishpolisetty@gmail.com</strong>
+          </p>
+        </div>
+        <div class="notif-card green">
+          <h4>📧 Email — Customer</h4>
+          <p>
+            ✅ Ticket submitted → <strong>Customer gets email</strong><br>
+            ✅ Status changed → <strong>Customer gets email</strong><br>
+            ✅ Resolved → <strong>Customer gets email</strong>
+          </p>
+        </div>
+        <div class="notif-card blue" style="background:#E8F5E9;border-color:#A5D6A7;">
+          <h4>📱 WhatsApp — Admin (You)</h4>
+          <p>
+            ✅ New ticket → WhatsApp message to:<br>
+            <strong>+91 9908773820</strong><br>
+            (Click button in ticket details)
+          </p>
+        </div>
+        <div class="notif-card green" style="background:#FFF8E1;border-color:#FFD54F;">
+          <h4>📱 WhatsApp — Customer</h4>
+          <p>
+            ✅ Click <strong>Send WhatsApp Update</strong> button in ticket details to notify customer on their phone directly
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat"><p>Total tickets</p><strong id="s-total">0</strong></div>
+      <div class="stat"><p>Open</p><strong id="s-open" style="color:#185FA5;">0</strong></div>
+      <div class="stat"><p>In progress</p><strong id="s-prog" style="color:#854F0B;">0</strong></div>
+      <div class="stat"><p>Resolved</p><strong id="s-done" style="color:#3B6D11;">0</strong></div>
+    </div>
+    <div class="filter-row">
+      <button class="fbtn active" onclick="setFilter('all',this)">All</button>
+      <button class="fbtn" onclick="setFilter('Open',this)">Open</button>
+      <button class="fbtn" onclick="setFilter('In progress',this)">In progress</button>
+      <button class="fbtn" onclick="setFilter('Resolved',this)">Resolved</button>
+    </div>
+    <div id="tickets-list"></div>
+    <div class="detail-panel" id="detail-panel"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// ADMIN PASSWORD — change to your own
+// ============================================================
+var ADMIN_PASSWORD = 'worldconnect@2025';
+var ADMIN_EMAIL    = 'Satishpolisetty@gmail.com';
+var ADMIN_PHONE    = '919908773820';
+
+// EmailJS config (filled after setup)
+// Formspree endpoint — handles all email notifications automatically
+var FORMSPREE_URL = 'https://formspree.io/f/mrevzyzp';
+
+// Google Sheets URL — saves all tickets permanently
+var SHEETS_URL = 'https://script.google.com/macros/s/AKfycby1NpFNkcCsFr9qHSwiWdmbGJBoNl0iaJ77oLA1HV1GGBPfyRVGszpW3-Z33wQFAR508A/exec';
+
+var tickets = [];
+var currentFilter = 'all';
+
+// ============================================================
+// ============================================================
+
+// Secret keyboard shortcut Ctrl+Shift+A — for Laptop/PC
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.shiftKey && e.key === 'A') { showAdminLogin(); }
+});
+
+// Secret TAP method — for Android/Mobile
+// Tap the "World Connect" logo in top-left navbar 5 times quickly
+var tapCount = 0;
+var tapTimer = null;
+document.getElementById('secret-tap').addEventListener('click', function(e) {
+  e.preventDefault();
+  tapCount++;
+  clearTimeout(tapTimer);
+  if (tapCount >= 5) {
+    tapCount = 0;
+    showAdminLogin();
+  } else {
+    // Small invisible feedback so you know it registered
+    tapTimer = setTimeout(function() { tapCount = 0; }, 3000);
+  }
+});
+
+function showAdminLogin() {
+  document.getElementById('login-overlay').classList.add('show');
+  document.getElementById('pwd-input').value = '';
+  document.getElementById('login-err').style.display = 'none';
+  setTimeout(function(){ document.getElementById('pwd-input').focus(); }, 100);
+}
+function adminLogin() {
+  if (document.getElementById('pwd-input').value === ADMIN_PASSWORD) {
+    document.getElementById('login-overlay').classList.remove('show');
+    document.getElementById('main-site').style.display = 'none';
+    document.getElementById('admin-page').style.display = 'block';
+    window.scrollTo(0,0); renderAdmin();
+  } else {
+    document.getElementById('login-err').style.display = 'block';
+    document.getElementById('pwd-input').value = '';
+    document.getElementById('pwd-input').focus();
+  }
+}
+function goHome() {
+  document.getElementById('admin-page').style.display = 'none';
+  document.getElementById('main-site').style.display = 'block';
+  window.scrollTo(0,0);
+}
+function adminLogout() { goHome(); }
+
+function calcPrice(v) {
+  document.getElementById('hval').textContent = v;
+  var extra = v * 50;
+  document.getElementById('totalAmt').textContent = '₹' + (150 + extra);
+  document.getElementById('breakdown').innerHTML = 'Starting fee: ₹150<br>Extra hours: ' + v + ' × ₹50 = ₹' + extra;
+}
+
+function genId() { return 'WC-' + Date.now().toString().slice(-5); }
+
+// ============================================================
+// SEND NOTIFICATION via Formspree — fully automatic
+// ============================================================
+// Send email to ADMIN via Formspree
+function sendAdminEmail(subject, message, customerName, customerEmail) {
+  fetch(FORMSPREE_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      email:    ADMIN_EMAIL,
+      name:     customerName,
+      subject:  subject,
+      message:  message,
+      _replyto: customerEmail
+    })
+  })
+  .then(function(r){ console.log('✅ Admin notified status:' + r.status); })
+  .catch(function(e){ console.error('❌ Admin email error:', e); });
+}
+
+// Send email to CUSTOMER via EmailJS
+function sendCustomerEmail(toEmail, toName, subject, message) {
+  if (!toEmail) return;
+  // Use EmailJS to send directly to customer email
+  var params = {
+    to_email:  toEmail,
+    to_name:   toName,
+    subject:   subject,
+    message:   message,
+    from_name: 'World Connect IT Support',
+    reply_to:  ADMIN_EMAIL
+  };
+  emailjs.init('A0Y9DE30trN47Z0V7');
+  emailjs.send('service_2w4nvbe', 'template_smcvfar', params)
+    .then(function(r){ console.log('✅ Customer email sent:', r.status); })
+    .catch(function(e){ console.error('❌ Customer email error:', e); });
+}
+
+// Legacy function - kept for status update emails
+function sendAutoEmail(toEmail, toName, subject, message) {
+  if (!toEmail) return;
+  if (toEmail === ADMIN_EMAIL) {
+    sendAdminEmail(subject, message, toName, toEmail);
+  } else {
+    sendCustomerEmail(toEmail, toName, subject, message);
+  }
+}
+
+// Save ticket permanently to Google Sheets
+function saveToSheets(ticket) {
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      ticket_id:   ticket.id,
+      date:        ticket.date,
+      time:        ticket.time,
+      name:        ticket.name,
+      phone:       ticket.phone,
+      email:       ticket.email,
+      issue_type:  ticket.type,
+      device:      ticket.device,
+      description: ticket.desc
+    })
+  })
+  .then(function(){ console.log('✅ Ticket saved to Google Sheets!'); })
+  .catch(function(e){ console.error('❌ Sheets error:', e); });
+}
+
+// ============================================================
+// SEND WHATSAPP (opens WhatsApp with message)
+// ============================================================
+function sendWA(phone, msg) {
+  var clean = phone.toString().replace(/[\s\-\+]/g,'');
+  if (clean.length === 10) clean = '91' + clean;
+  window.open('https://wa.me/' + clean + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+// ============================================================
+// SUBMIT TICKET
+// ============================================================
+function submitTicket() {
+  var name   = document.getElementById('f-name').value.trim();
+  var phone  = document.getElementById('f-phone').value.trim();
+  var email  = document.getElementById('f-email').value.trim();
+  var type   = document.getElementById('f-type').value;
+  var device = document.getElementById('f-device').value;
+  var desc   = document.getElementById('f-desc').value.trim();
+  var err    = document.getElementById('ferr');
+
+  if (!name||!phone||!email||!type||!device||!desc) {
+    err.style.display='block';
+    err.textContent = '⚠️ Please fill in all required fields including your Email address.';
+    return;
+  }
+  err.style.display = 'none';
+
+  var btn = document.getElementById('submit-btn');
+  var bar = document.getElementById('sending-bar');
+  btn.disabled = true;
+  btn.textContent = '⏳ Submitting...';
+
+  var now = new Date();
+  var ticket = {
+    id: genId(), name: name, phone: phone, email: email,
+    type: type, device: device, desc: desc, status: 'Open', reply: '',
+    date: now.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}),
+    time: now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})
+  };
+  tickets.push(ticket);
+
+  // ---- EMAIL TO CUSTOMER (automatic) ----
+  var custSubject = '✅ Ticket Confirmed: ' + ticket.id + ' — World Connect IT Support';
+  var custMsg =
+    'Dear ' + ticket.name + ',\n\n' +
+    'Your support ticket has been successfully received by World Connect IT Support.\n\n' +
+    '============================\n' +
+    'TICKET DETAILS\n' +
+    '============================\n' +
+    'Ticket ID   : ' + ticket.id + '\n' +
+    'Issue Type  : ' + ticket.type + '\n' +
+    'Device      : ' + ticket.device + '\n' +
+    'Description : ' + ticket.desc + '\n' +
+    'Status      : Open\n' +
+    'Submitted   : ' + ticket.date + ' ' + ticket.time + '\n\n' +
+    '============================\n' +
+    'PRICING\n' +
+    '============================\n' +
+    'Starting fee      : ₹150 (diagnosis + 1st hour)\n' +
+    'Additional time   : ₹50 per hour\n\n' +
+    'Our expert will contact you shortly.\n' +
+    'You will receive email updates when your ticket status changes.\n\n' +
+    'Thank you for choosing World Connect IT Support!\n' +
+    'Email: ' + ADMIN_EMAIL + '\n' +
+    'Phone: +91 9908773820';
+
+  // Show success IMMEDIATELY — don't wait for email
+  document.getElementById('success-tid').textContent = ticket.id;
+  document.getElementById('ticket-form').style.display = 'none';
+  document.getElementById('success-box').style.display = 'block';
+  bar.style.display = 'none';
+
+  // Save to Google Sheets permanently
+  saveToSheets(ticket);
+
+  // Admin email content
+  var adminSubject = '🔔 New Ticket ' + ticket.id + ' — ' + ticket.name + ' (' + ticket.type + ')';
+  var adminMsg =
+    'NEW SUPPORT TICKET RECEIVED\n\n' +
+    'Ticket ID   : ' + ticket.id + '\n' +
+    'Customer    : ' + ticket.name + '\n' +
+    'Phone       : ' + ticket.phone + '\n' +
+    'Email       : ' + ticket.email + '\n' +
+    'Issue Type  : ' + ticket.type + '\n' +
+    'Device      : ' + ticket.device + '\n' +
+    'Description : ' + ticket.desc + '\n' +
+    'Submitted   : ' + ticket.date + ' ' + ticket.time + '\n\n' +
+    'Login to admin dashboard to respond.\n' +
+    'Website: https://worldconnect-itsupport.netlify.app';
+
+  // Send emails in background (non-blocking)
+  setTimeout(function() {
+    sendAutoEmail(ticket.email, ticket.name, custSubject, custMsg);
+  }, 100);
+  setTimeout(function() {
+    sendAutoEmail(ADMIN_EMAIL, 'Admin', adminSubject, adminMsg);
+  }, 500);
+}
+
+function resetForm() {
+  ['f-name','f-phone','f-email','f-desc'].forEach(function(id){document.getElementById(id).value='';});
+  ['f-type','f-device'].forEach(function(id){document.getElementById(id).selectedIndex=0;});
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = false;
+  btn.textContent = '📨 Submit Ticket — Get Instant Email Confirmation';
+  document.getElementById('ticket-form').style.display = 'block';
+  document.getElementById('success-box').style.display = 'none';
+}
+
+// ============================================================
+// ADMIN DASHBOARD
+// ============================================================
+function badge(s) {
+  var c = s==='Open'?'badge-open':s==='In progress'?'badge-prog':'badge-done';
+  return '<span class="badge '+c+'">'+s+'</span>';
+}
+
+function renderAdmin() {
+  var open=tickets.filter(function(t){return t.status==='Open';}).length;
+  var prog=tickets.filter(function(t){return t.status==='In progress';}).length;
+  var done=tickets.filter(function(t){return t.status==='Resolved';}).length;
+  document.getElementById('s-total').textContent = tickets.length;
+  document.getElementById('s-open').textContent = open;
+  document.getElementById('s-prog').textContent = prog;
+  document.getElementById('s-done').textContent = done;
+  var filtered = currentFilter==='all'?tickets:tickets.filter(function(t){return t.status===currentFilter;});
+  var list = document.getElementById('tickets-list');
+  if (filtered.length===0) {
+    list.innerHTML='<div class="empty-state">📭 No tickets yet.</div>';
+    document.getElementById('detail-panel').style.display='none';
+    return;
+  }
+  list.innerHTML = filtered.slice().reverse().map(function(t){
+    return '<div class="ticket-item" onclick="selectTicket(\''+t.id+'\')">'+
+      '<div class="t-header"><span class="t-id">🎫 '+t.id+'</span>'+badge(t.status)+'</div>'+
+      '<div class="t-name">'+t.name+'</div>'+
+      '<div class="t-sub">'+t.type+' · '+t.device+'</div>'+
+      '<div class="t-meta">🕐 '+t.date+' '+t.time+' &nbsp;·&nbsp; 📞 '+t.phone+' &nbsp;·&nbsp; 📧 '+t.email+'</div></div>';
+  }).join('');
+}
+
+function selectTicket(id) {
+  var t = tickets.find(function(x){return x.id===id;});
+  var p = document.getElementById('detail-panel');
+  p.style.display = 'block';
+  p.innerHTML =
+    '<h4>Ticket '+t.id+' &nbsp;'+badge(t.status)+'</h4>'+
+    '<div class="drow"><span>Customer</span><span>'+t.name+'</span></div>'+
+    '<div class="drow"><span>Phone</span><span>'+t.phone+'</span></div>'+
+    '<div class="drow"><span>Email</span><span>'+t.email+'</span></div>'+
+    '<div class="drow"><span>Issue type</span><span>'+t.type+'</span></div>'+
+    '<div class="drow"><span>Device</span><span>'+t.device+'</span></div>'+
+    '<div class="drow"><span>Submitted</span><span>'+t.date+' '+t.time+'</span></div>'+
+    '<div class="desc-box">'+t.desc+'</div>'+
+    (t.reply?'<div style="background:#EAF3DE;border-radius:8px;padding:12px;font-size:13px;color:#27500A;margin-bottom:10px;"><strong>Your reply:</strong> '+t.reply+'</div>':'')+
+    '<label style="font-size:13px;color:#555;font-weight:bold;display:block;margin-bottom:6px;">Reply / solution to customer</label>'+
+    '<textarea class="reply-txt" id="reply-txt-'+id+'" placeholder="Type your solution here...">'+(t.reply||'')+'</textarea>'+
+    '<div class="action-row">'+
+    '<button class="abtn orange" onclick="updateStatus(\''+id+'\',\'In progress\')">⏳ In Progress + Email Customer</button>'+
+    '<button class="abtn green" onclick="updateStatus(\''+id+'\',\'Resolved\')">✅ Resolved + Email Customer</button>'+
+    '<button class="abtn" onclick="updateStatus(\''+id+'\',\'Open\')">🔄 Reset to Open</button>'+
+    '</div>'+
+    '<div class="action-row" style="margin-top:8px;">'+
+    '<button class="abtn" style="background:#25D366;color:white;border-color:#25D366;" onclick="waCustomer(\''+id+'\')">📱 Send WhatsApp to Customer</button>'+
+    '<button class="abtn" style="background:#0C447C;color:white;border-color:#0C447C;" onclick="waAdmin(\''+id+'\')">📱 Forward to My WhatsApp</button>'+
+    '</div>'+
+    '<div class="notif-ok" id="notif-ok-'+id+'"></div>';
+  p.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function updateStatus(id, newStatus) {
+  var t = tickets.find(function(x){return x.id===id;});
+  var txt = document.getElementById('reply-txt-'+id);
+  if(t && txt){ t.reply = txt.value.trim(); t.status = newStatus; }
+
+  if (newStatus !== 'Open' && t.email) {
+    var statusEmoji = newStatus==='In progress' ? '⏳' : '✅';
+    var subject = statusEmoji + ' Your Ticket ' + t.id + ' is now ' + newStatus + ' — World Connect';
+    var msg =
+      'Dear ' + t.name + ',\n\n' +
+      'Your support ticket status has been updated.\n\n' +
+      'Ticket ID : ' + t.id + '\n' +
+      'Issue     : ' + t.type + '\n' +
+      'Device    : ' + t.device + '\n' +
+      'Status    : ' + newStatus + '\n' +
+      (t.reply ? 'Message from expert: ' + t.reply + '\n' : '') + '\n' +
+      (newStatus==='Resolved'
+        ? 'Your issue has been resolved! Thank you for choosing World Connect.\nPlease reach out if you need further help.\n'
+        : 'Our expert is actively working on your issue. We will notify you once resolved.\n') +
+      '\nWorld Connect IT Support\n' + ADMIN_EMAIL;
+    sendAutoEmail(t.email, t.name, subject, msg);
+
+    var ok = document.getElementById('notif-ok-'+id);
+    if (ok) { ok.style.display='block'; ok.textContent = '✅ Email notification sent automatically to ' + t.email; }
+  }
+  renderAdmin();
+  setTimeout(function(){ selectTicket(id); }, 200);
+}
+
+function waCustomer(id) {
+  var t = tickets.find(function(x){return x.id===id;});
+  var txt = document.getElementById('reply-txt-'+id);
+  var reply = txt ? txt.value.trim() : t.reply;
+  var msg =
+    '📋 *World Connect IT Support*\n\n' +
+    'Hello ' + t.name + ',\n\n' +
+    '🎫 Ticket ID: *' + t.id + '*\n' +
+    '📊 Status: *' + t.status + '*\n' +
+    '💻 Issue: ' + t.type + '\n' +
+    (reply ? '💬 Expert message: ' + reply + '\n' : '') +
+    '\nThank you for choosing World Connect! 🌐';
+  sendWA(t.phone, msg);
+}
+
+function waAdmin(id) {
+  var t = tickets.find(function(x){return x.id===id;});
+  var msg =
+    '🔔 *New Ticket — World Connect*\n\n' +
+    '🎫 ID: ' + t.id + '\n' +
+    '👤 ' + t.name + '\n' +
+    '📞 ' + t.phone + '\n' +
+    '💻 ' + t.type + ' — ' + t.device + '\n' +
+    '📝 ' + t.desc;
+  sendWA(ADMIN_PHONE, msg);
+}
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.fbtn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById('detail-panel').style.display='none';
+  renderAdmin();
+}
+</script>
+</body>
+</html>
